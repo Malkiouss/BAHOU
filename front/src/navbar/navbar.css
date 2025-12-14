@@ -1,0 +1,90 @@
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #E8DCC8;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 40px 60px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .logo {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #000;
+            letter-spacing: 4px;
+        }
+
+        .logo-subtitle {
+            font-size: 10px;
+            color: #333;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        nav a {
+            font-size: 13px;
+            color: #000;
+            text-decoration: none;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        nav a:last-child {
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 30px 30px;
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            nav {
+                gap: 20px;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .logo-subtitle {
+                font-size: 9px;
+            }
+        }
