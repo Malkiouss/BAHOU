@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Mabry Pro';
+    src: local('Mabry Pro Light Italic'), local('Mabry-Pro-Light-Italic'),
+        url('MabryPro-LightItalic.woff2') format('woff2'),
+        url('MabryPro-LightItalic.woff') format('woff'),
+        url('MabryPro-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+  }

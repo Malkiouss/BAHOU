@@ -1,6 +1,6 @@
- 
        .section2-container {
-        background-color: #1a1a1a;
+            background-color: #1a1a1a;
+            border-radius: 50px 50px 0 0;
             font-family: 'Inter', sans-serif;
             color: #fff;
             padding: 80px 60px;
@@ -36,7 +36,12 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            flex: 1;
+        }
+
+        .room-item {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .room-card {
@@ -77,30 +82,18 @@
             letter-spacing: 0.3px;
         }
 
-        /* Footer Metadata */
-        .footer-metadata {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+        .card-description {
+            font-size: 13px;
+            color: #ccc;
+            line-height: 1.7;
+            letter-spacing: 0.2px;
         }
-
-        .metadata-left {
-            font-size: 11px;
-            color: #999;
-            line-height: 1.8;
-            letter-spacing: 0.5px;
-        }
-
-        .metadata-right {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 6px;
-            font-size: 11px;
-            color: #999;
-            letter-spacing: 0.5px;
+        .card-button{
+            font-size: 13px;
+            color: #ccc;
+            line-height: 1.7;
+            letter-spacing: 0.2px;
+            cursor: pointer;
         }
 
         /* Responsive */
@@ -130,15 +123,5 @@
 
             .heading {
                 font-size: 36px;
-            }
-
-            .footer-metadata {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 30px;
-            }
-
-            .metadata-right {
-                align-items: flex-start;
             }
         }

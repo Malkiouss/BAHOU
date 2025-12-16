@@ -1,4 +1,13 @@
+@font-face {
+  font-family: 'MabryPro';
+  src: url('../../public/fonts/MabryPro-LightItalic/MabryPro-LightItalic.woff2') format('woff2'),
+       url('../../public/fonts/MabryPro-LightItalic/MabryPro-LightItalic.woff') format('woff'),
+       url('../../public/fonts/MabryPro-LightItalic/MabryPro-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
 
+/*
         .section-container {
             min-height: 100vh;
             display: flex;
@@ -8,7 +17,7 @@
             color: #2F201B;
         }
 
-        /* Main Content */
+       
         .content-wrapper {
             display: flex;
             flex-direction: column;
@@ -37,12 +46,30 @@
         }
 
         .message-text {
-            font-family: 'Bodoni Moda', serif;
-            font-size: 17px;
+            
+            font-family: 'MabryPro', sans-serif;
+            font-size: 29.7387px;
             color: #2F201B;
-            line-height: 1.9;
+            line-height: 37.1733px;
             text-align: left;
             letter-spacing: 0.3px;
+            text-size-adjust: 100%;
+            width: 713.725px;
+        }
+
+        .message-q{
+            font-size: 100px;
+            margin-bottom: -27px;
+            margin-left: -14px;
+            
+
+        }
+        .message-q2{
+            font-size: 100px;
+            text-align: right;
+            margin-top: 14px;
+            margin-right: 10px;
+
         }
 
         .view-more {
@@ -96,3 +123,144 @@
                 line-height: 1.8;
             }
         }
+            */
+
+  
+              
+              /* Section */
+              .section-container {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 60px;
+                color: #2F201B;
+                overflow: visible;
+              }
+              
+              /* Content */
+              .content-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                max-width: 760px;
+                width: 100%;
+                gap: 48px;
+                position: relative;
+              }
+              
+              /* Label */
+              .message-label {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 10px;
+                font-size: 11px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                align-self: flex-start;
+              }
+              
+              .label-line {
+                width: 20px;
+                height: 1px;
+                background-color: #2F201B;
+              }
+              
+              /* Message */
+              .message-text {
+                position: relative;
+                font-family: 'MabryPro', sans-serif;
+                font-size: clamp(1.6rem, 2.4vw, 1.9rem);
+                line-height: 1.65;
+                letter-spacing: 0.3px;
+                color: #2F201B;
+                text-align: left;
+                max-width: 760px;
+                width: 100%;
+              }
+              
+              /* Each line (important for GSAP) */
+              .message-text .line {
+                margin: 0;
+                display: block;
+              }
+              
+             
+              
+              /* Quotes */
+              .message-q,
+              .message-q2 {
+                position: absolute;
+                font-size: 6rem;
+               
+                pointer-events: none;
+              }
+              
+              .message-q {
+                top: -5rem;
+                left: -1rem;
+              }
+              
+              .message-q2 {
+                bottom: -5rem;
+                right: -1rem;
+              }
+              
+              /* CTA */
+              .view-more {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 13px;
+                letter-spacing: 0.5px;
+                text-decoration: none;
+                color: #2F201B;
+                align-self: flex-start;
+                transition: opacity 0.3s ease;
+              }
+              
+              .view-more:hover {
+                opacity: 0.6;
+              }
+              
+              .arrow {
+                width: 20px;
+                height: 1px;
+                background-color: #2F201B;
+                position: relative;
+              }
+              
+              .arrow::after {
+                content: '';
+                position: absolute;
+                right: -4px;
+                top: -3px;
+                width: 6px;
+                height: 6px;
+                border-top: 1px solid #2F201B;
+                border-right: 1px solid #2F201B;
+                transform: rotate(45deg);
+              }
+              
+              /* Mobile */
+              @media (max-width: 768px) {
+                .section-container {
+                  padding: 60px 28px;
+                }
+              
+                .content-wrapper {
+                  gap: 36px;
+                }
+              
+                .message-text {
+                  font-size: 1.1rem;
+                  line-height: 1.8;
+                }
+              
+                .message-q,
+                .message-q2 {
+                  font-size: 4rem;
+                }
+              }
+              
