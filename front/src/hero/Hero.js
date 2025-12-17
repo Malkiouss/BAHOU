@@ -14,6 +14,7 @@ export default function Hero() {
     const startRef = useRef(null);
     const duration = 600;
     const illustrationRef = useRef(null);
+    const heroContainerRef = useRef(null);
     const mousePosition = useRef({ x: 0, y: 0 });
     const currentPosition = useRef({ x: 0, y: 0 });
     const animationFrameId = useRef(null);
@@ -72,10 +73,20 @@ export default function Hero() {
         }
     }, []);
 
-    // Smooth cursor following animation
+    // Smooth cursor following animation - only in hero section
     useEffect(() => {
         const handleMouseMove = (e) => {
-            if (illustrationRef.current) {
+            // Check if mouse is within hero container bounds
+            if (!heroContainerRef.current || !illustrationRef.current) return;
+            
+            const heroRect = heroContainerRef.current.getBoundingClientRect();
+            const isInHeroSection = 
+                e.clientX >= heroRect.left &&
+                e.clientX <= heroRect.right &&
+                e.clientY >= heroRect.top &&
+                e.clientY <= heroRect.bottom;
+            
+            if (isInHeroSection) {
                 const rect = illustrationRef.current.getBoundingClientRect();
                 const centerX = rect.left + rect.width / 2;
                 const centerY = rect.top + rect.height / 2;
@@ -85,6 +96,9 @@ export default function Hero() {
                 const offsetY = (e.clientY - centerY) * 0.1;
                 
                 mousePosition.current = { x: offsetX, y: offsetY };
+            } else {
+                // Reset to center when mouse leaves hero section
+                mousePosition.current = { x: 0, y: 0 };
             }
         };
 
@@ -115,25 +129,26 @@ export default function Hero() {
     }, []);
 
     return (
-        <section className="hero-container">
+        <section className="hero-container" ref={heroContainerRef}>
             {isLoading && (
                 <div ref={loader} className="loader"></div>
             )}
             <div className="hero-content">
                 <h1 className="headline">Traces</h1>
-                <h3 className="subtitle">What We Write Is What We Are</h3>
+                <h2 className="subtitle">What We Write Is What We Are</h2>
             </div>
             <div className="illustration-container" ref={illustrationRef}>
                 <img src={handDrawnIllustration} alt="Hand drawn poetry illustration" />
             </div>
             <TextCursor
-                text="Hello!"
+                text="Bahou!"
                 spacing={80}
                 followMouseDirection={true}
                 randomFloat={true}
                 exitDuration={0.3}
                 removalInterval={20}
                 maxPoints={10}
+                heroContainerRef={heroContainerRef}
             />
         </section>
     );
