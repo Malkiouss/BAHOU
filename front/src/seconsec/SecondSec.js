@@ -1,50 +1,28 @@
-/*import React from 'react';
-import './seconsec.css';
-
-export default function SecondSec() {
-  return (
-    <section className="section-container">
-     
-      <div className="content-wrapper">
-        <div className="message-label">
-          <div className="label-line"></div>
-          <span>Message</span>
-        </div>
-
-        <p className="message-text"> <p className="message-q">“</p>“I’m not trying to explain anything here.
-I’m only sharing what felt worth keeping.
-Some of it became words, some became images,
-and some simply stayed as they were — unfinished, honest.”<p className="message-q2">”</p></p>
-
-        <a href="#" className="view-more">
-          <span>View more</span>
-          <div className="arrow"></div>
-        </a>
-      </div>
-    </section>
-  );
-}
-  */
-
-import React from "react";
+import React, { useRef } from "react";
 import "./seconsec.css";
-import { useEffect } from "react";
 import gsap from "gsap";
-import {SplitText } from "gsap/SplitText";
+import { useGSAP } from '@gsap/react'; 
+import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(SplitText,ScrollTrigger);
-
-
- 
-
-
-
+// Register GSAP plugins
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export default function SecondSec() {
-  useEffect(() => {
-    let split = SplitText.create(".message-text", {
-      type: "chars,words,lines"
+  const sectionRef = useRef(null);
+
+  useGSAP(() => {
+    if (!sectionRef.current) return;
+
+    const messageText = sectionRef.current.querySelector(".message-text");
+    if (!messageText) return;
+
+    let split = SplitText.create(messageText, {
+      type: "chars,words",
+      linesClass: "line",
+      wordsClass: "word",
+      charsClass: "char",
+      autoSplit: true
     });
 
     // Set initial state - words hidden
@@ -56,12 +34,13 @@ export default function SecondSec() {
     // Scroll animation with pin
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: ".section-container",
+        trigger: sectionRef.current,
         start: "top top",
         end: "+=200%", // Pin for 200% of viewport height
         pin: true,
         scrub: 1,
-        markers: false // Set to true for debugging
+        markers: true, // Temporarily enabled for debugging
+        anticipatePin: 1
       }
     });
 
@@ -73,16 +52,14 @@ export default function SecondSec() {
       ease: "power2.out"
     });
 
-    return () => {
-      if (split) split.revert();
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
+    // Cleanup function
+   
+  });
 
 
 
   return (
-    <section className="section-container">
+    <section ref={sectionRef} className="section-container">
       <div className="content-wrapper">
         
         {/* Label */}
