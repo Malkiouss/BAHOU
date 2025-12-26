@@ -26,7 +26,7 @@ export default function SecondSec() {
     });
 
     // Set initial state - words hidden
-    gsap.set(split.words, {
+    gsap.set(split.chars, {
       y: 100,
       opacity: 0
     });
@@ -45,7 +45,7 @@ export default function SecondSec() {
     });
 
     // Reveal words on scroll
-    tl.to(split.words, {
+    tl.to(split.chars, {
       y: 0,
       opacity: 1,
       stagger: 0.02,

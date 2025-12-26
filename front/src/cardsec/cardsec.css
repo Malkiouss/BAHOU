@@ -1,127 +1,187 @@
-       .section2-container {
-            background-color: #1a1a1a;
-            border-radius: 50px 50px 0 0;
-            font-family: 'Inter', sans-serif;
-            color: #fff;
-            padding: 80px 60px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            gap: 60px;
-        }
+@font-face {
+    font-family: 'Gloria';
+    src: url('../../public/fonts/title/Gloria.ttf');
+}
 
-        /* Header */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
+@font-face {
+    font-family: 'MabryPro';
+    src: url('../../public/fonts/MabryPro-LightItalic/MabryPro-LightItalic.woff2') format('woff2'),
+         url('../../public/fonts/MabryPro-LightItalic/MabryPro-LightItalic.woff') format('woff'),
+         url('../../public/fonts/MabryPro-LightItalic/MabryPro-LightItalic.ttf') format('truetype');
+}
 
-        .heading {
-            font-size: 72px;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: -1px;
-        }
+@font-face {
+    font-family: 'Penna';
+    src: url('../../public/fonts/Penna/penna.otf');
+}
 
-        .pagination {
-            font-size: 14px;
-            color: #fff;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
+/* =========================
+   TOPICS SECTION
+   ========================= */
+   .topics-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 6vw;
+    position: relative;
+    font-family: 'Penna', serif;
+}
 
-        /* Cards Container */
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
+/* =========================
+   HEADER
+   ========================= */
 
-        .room-item {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+.topics-header {
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
 
-        .room-card {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            aspect-ratio: 1 / 1.2;
-            cursor: pointer;
-        }
+.topics-label {
+    margin-top: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    text-transform: uppercase;
+    font-weight: 900;
+    white-space: nowrap;
+}
 
-        .card-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
+/* =========================
+   LIST
+   ========================= */
 
-        .room-card:hover .card-image {
-            transform: scale(1.05);
-        }
+.topics-list {
+    display: flex;
+    flex-direction: column;
+}
 
-        .card-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.6) 100%);
-            display: flex;
-            align-items: flex-end;
-            padding: 30px;
-        }
+/* =========================
+   ITEM
+   ========================= */
 
-        .card-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: 0.3px;
-        }
+.topic-item {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    padding: 2.0rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.4s ease;
+}
 
-        .card-description {
-            font-size: 13px;
-            color: #ccc;
-            line-height: 1.7;
-            letter-spacing: 0.2px;
-        }
-        .card-button{
-            font-size: 13px;
-            color: #ccc;
-            line-height: 1.7;
-            letter-spacing: 0.2px;
-            cursor: pointer;
-        }
+.topic-item:last-child {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .cards-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
+/* =========================
+   EYE
+   ========================= */
 
-            .section-container {
-                padding: 60px 40px;
-            }
+.topic-eye {
+    width: 28px;
+    margin-right: 1.2rem;
+    font-size: 1.3rem;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+    flex-shrink: 0;
+}
+.topic-eye svg {
+    display: block;
+    width: 22px;
+    height: auto;
+}
 
-            .heading {
-                font-size: 48px;
-            }
-        }
 
-        @media (max-width: 768px) {
-            .cards-container {
-                grid-template-columns: 1fr;
-            }
+/* =========================
+   CONTENT
+   ========================= */
 
-            .section-container {
-                padding: 40px 30px;
-                gap: 40px;
-            }
+.topic-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    transform: translateX(-36px); /* intentional offset */
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
 
-            .heading {
-                font-size: 36px;
-            }
-        }
+/* =========================
+   TEXT
+   ========================= */
+
+.topic-text {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
+}
+
+
+/* =========================
+   HOVER
+   ========================= */
+
+.topic-item:hover .topic-eye {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.topic-item:hover .topic-content {
+    transform: translateX(0);
+}
+
+.topic-item:hover .topic-text {
+    opacity: 0.5;
+}
+
+.topic-item:hover {
+    opacity: 0.8;
+    transform: translateX(8px); /* calmer than 12px */
+}
+
+/* =========================
+   REDUCED MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .topic-eye,
+    .topic-content
+     {
+        transition: none;
+        transform: none;
+    }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 768px) {
+    .topic-item {
+        padding: 2rem 0;
+    }
+
+    .topic-text {
+        font-size: clamp(1.8rem, 6vw, 2.8rem);
+    }
+
+ 
+
+    /* Disable hover motion on touch */
+    .topic-content {
+        transform: none;
+    }
+
+    .topic-eye{
+        display: none;
+    }
+}

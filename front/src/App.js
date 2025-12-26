@@ -5,6 +5,7 @@ import Hero from './hero/Hero';
 import SecondSec from './seconsec/SecondSec';
 import CardSec from './cardsec/CardSec';
 import ThirdSec from './thitdsec/ThirdSec';
+import RandomSec from './randomsec/RandomSec';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <SecondSec />
       <CardSec />
       <ThirdSec />
+      <RandomSec />
       <h1>Welcome to the BAHOU Application</h1>
     </div>
   );

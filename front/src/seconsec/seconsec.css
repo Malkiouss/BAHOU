@@ -12,12 +12,13 @@
               
               /* Section */
               .section-container {
+                background-color: #2F201B;
                 min-height: 100vh;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 padding: 60px;
-                color: #2F201B;
+                color: #E8DCC8;
                 overflow: visible;
               }
               
@@ -47,7 +48,7 @@
               .label-line {
                 width: 20px;
                 height: 1px;
-                background-color: #2F201B;
+                background-color: #E8DCC8;
               }
               
               /* Message */
@@ -57,7 +58,7 @@
                 font-size: clamp(1.6rem, 2.4vw, 1.9rem);
                 line-height: 1.65;
                 letter-spacing: 0.3px;
-                color: #2F201B;
+                color: #E8DCC8;
                 text-align: left;
                 max-width: 760px;
                 width: 100%;
@@ -98,7 +99,7 @@
                 font-size: 13px;
                 letter-spacing: 0.5px;
                 text-decoration: none;
-                color: #2F201B;
+                color: #E8DCC8;
                 align-self: flex-start;
                 transition: opacity 0.3s ease;
               }
@@ -110,7 +111,7 @@
               .arrow {
                 width: 20px;
                 height: 1px;
-                background-color: #2F201B;
+                background-color: #E8DCC8;
                 position: relative;
               }
               
@@ -121,8 +122,8 @@
                 top: -3px;
                 width: 6px;
                 height: 6px;
-                border-top: 1px solid #2F201B;
-                border-right: 1px solid #2F201B;
+                border-top: 1px solid #E8DCC8;
+                border-right: 1px solid #E8DCC8;
                 transform: rotate(45deg);
               }
               

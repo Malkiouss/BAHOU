@@ -1,12 +1,26 @@
-   * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+@font-face {
+    font-family: 'Gloria';
+    src: url('../../public/fonts/title/Gloria.ttf');
+}       
+@font-face {
+    font-family: 'MabryPro';
+    src: url('../../public/fonts/MabryPro-LightItalic/MabryPro-LightItalic.woff2') format('woff2'),
+         url('../../public/fonts/MabryPro-LightItalic/MabryPro-LightItalic.woff') format('woff'),
+         url('../../public/fonts/MabryPro-LightItalic/MabryPro-LightItalic.ttf') format('truetype');
+    
+  }
+  @font-face {
+    font-family: 'Penna';
+    src: url('../../public/fonts/Penna/penna.otf');
+}  
+       
+   
+   
+  
 
         body {
             background-color: #E8DCC8;
-            font-family: 'Inter', sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         header {
@@ -26,7 +40,7 @@
         }
 
         .logo {
-            font-family: 'Bodoni Moda', serif;
+            font-family: 'Gloria';
             font-size: 24px;
             font-weight: 700;
             color: #000;
@@ -34,11 +48,12 @@
         }
 
         .logo-subtitle {
+            font-family: 'Penna';
             font-size: 10px;
-            color: #333;
+            color: #000;
             letter-spacing: 2px;
             text-transform: uppercase;
-            font-weight: 400;
+            font-weight: bolder;
         }
 
         nav {
@@ -47,18 +62,39 @@
             align-items: center;
         }
 
-        nav a {
-            font-size: 13px;
-            color: #000;
-            text-decoration: none;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-            transition: opacity 0.3s ease;
-            position: relative;
+        nav {
+            display: flex;
+            gap: 30px;
+            width: fit-content;
         }
 
-        nav a:hover {
-            opacity: 0.6;
+        nav a {
+            font-family: Penna;
+            font-size: 20px;
+            color: #000;
+            text-decoration: none;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Diagonal line effect */
+        nav a::before {
+            content: '';
+            position: absolute;
+            background: #970d0d;
+            width: 0;
+            height: 1.5px;
+            top: 70%;
+            left: -10%;
+            transform: rotate(-10deg);
+            transform-origin: left center;
+            transition: width 0.5s ease;
+        }
+
+        nav a:hover::before {
+            width: 120%;
         }
 
         nav a:last-child {
