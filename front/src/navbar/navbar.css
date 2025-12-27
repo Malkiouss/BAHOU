@@ -19,7 +19,9 @@
   
 
         body {
-            background-color: #E8DCC8;
+            background-color: #D7CAC1;
+             /*background-color: #E8DCC8;*/
+            /*background-color: #E7EFC7;*/
             font-family: Arial, Helvetica, sans-serif;
         }
 
@@ -31,26 +33,29 @@
             position: sticky;
             top: 0;
             z-index: 10;
+            color: #E8DCC8;
+            mix-blend-mode: difference;
+            
         }
 
         .logo-section {
             display: flex;
             flex-direction: column;
             gap: 8px;
+            
         }
 
         .logo {
             font-family: 'Gloria';
             font-size: 24px;
             font-weight: 700;
-            color: #000;
             letter-spacing: 4px;
+           
         }
 
         .logo-subtitle {
             font-family: 'Penna';
             font-size: 10px;
-            color: #000;
             letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: bolder;
@@ -60,30 +65,28 @@
             display: flex;
             gap: 35px;
             align-items: center;
+            
+            
         }
 
-        nav {
-            display: flex;
-            gap: 30px;
-            width: fit-content;
-        }
+
 
         nav a {
             font-family: Penna;
             font-size: 20px;
-            color: #000;
             text-decoration: none;
             font-weight: 800;
             letter-spacing: 0.5px;
             position: relative;
             display: inline-block;
+            color: white;
         }
 
         /* Diagonal line effect */
         nav a::before {
             content: '';
             position: absolute;
-            background: #970d0d;
+            background: white;
             width: 0;
             height: 1.5px;
             top: 70%;
