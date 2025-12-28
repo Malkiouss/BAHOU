@@ -1,187 +1,201 @@
-@font-face {
+/* =========================
+   FONTS
+   ========================= */
+   @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+
+   @font-face {
     font-family: 'Gloria';
-    src: url('../../public/fonts/title/Gloria.ttf');
-}
-
-@font-face {
+    src: url('../../public/fonts/title/Gloria.ttf') format('truetype');
+    font-display: swap;
+  }
+  
+  @font-face {
     font-family: 'MabryPro';
-    src: url('../../public/fonts/MabryPro-LightItalic/MabryPro-LightItalic.woff2') format('woff2'),
-         url('../../public/fonts/MabryPro-LightItalic/MabryPro-LightItalic.woff') format('woff'),
-         url('../../public/fonts/MabryPro-LightItalic/MabryPro-LightItalic.ttf') format('truetype');
-}
-
-@font-face {
+    src:
+      url('../../public/fonts/MabryPro-LightItalic/MabryPro-LightItalic.woff2') format('woff2'),
+      url('../../public/fonts/MabryPro-LightItalic/MabryPro-LightItalic.woff') format('woff'),
+      url('../../public/fonts/MabryPro-LightItalic/MabryPro-LightItalic.ttf') format('truetype');
+    font-display: swap;
+  }
+  
+  @font-face {
     font-family: 'Penna';
-    src: url('../../public/fonts/Penna/penna.otf');
-}
-
-/* =========================
-   TOPICS SECTION
-   ========================= */
-   .topics-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 6vw;
-    position: relative;
-    font-family: 'Penna', serif;
-}
-
-/* =========================
-   HEADER
-   ========================= */
-
-.topics-header {
-    display: flex;
-    align-items: baseline;
-    gap: 2rem;
+    src: url('../../public/fonts/Penna/penna.otf') format('opentype');
+    font-display: swap;
+  }
+  
+  /* =========================
+     LABEL
+     ========================= */
+  
+  .topics-label {
+    margin-top: 3rem;
     margin-bottom: 3rem;
-}
-
-.topics-label {
-    margin-top: 30px;
+    margin-left: 3rem;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 50px;
+    font-size: clamp(3.2rem, 7vw, 5.5rem);
     text-transform: uppercase;
-    font-weight: 900;
-    white-space: nowrap;
-}
+    font-weight: 800;
+    letter-spacing: -0.1em;
 
-/* =========================
-   LIST
-   ========================= */
-
-.topics-list {
+  }
+  
+  
+  /* =========================
+     LIST
+     ========================= */
+  
+  .topics-list {
+    position: relative;
     display: flex;
     flex-direction: column;
-}
-
-/* =========================
-   ITEM
-   ========================= */
-
-.topic-item {
+  }
+  
+  /* =========================
+     ITEM (NO TRANSFORMS)
+     ========================= */
+  
+  .topic-item {
     position: relative;
-    text-decoration: none;
-    color: inherit;
-    padding: 2.0rem 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.25);
     display: flex;
     align-items: center;
+    margin-left: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    color: inherit;
     cursor: pointer;
-    transition: opacity 0.4s ease;
-}
-
-.topic-item:last-child {
+    font-family: 'Penna', serif;
+    transition: opacity 0.35s ease;
+  }
+  
+  .topic-item:last-of-type {
     border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-}
-
-/* =========================
-   EYE
-   ========================= */
-
-.topic-eye {
+  }
+  
+  /* =========================
+     FLOATING IMAGE
+     ========================= */
+  
+  .topic-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    will-change: transform, opacity;
+  }
+  
+  /* =========================
+     EYE ICON
+     ========================= */
+  
+  .topic-eye {
     width: 28px;
     margin-right: 1.2rem;
-    font-size: 1.3rem;
     opacity: 0;
     transform: translateX(-8px);
     transition:
-        opacity 0.35s ease,
-        transform 0.35s ease;
+      opacity 0.35s ease,
+      transform 0.35s ease;
     flex-shrink: 0;
-}
-.topic-eye svg {
+  }
+  
+  .topic-eye svg {
     display: block;
     width: 22px;
     height: auto;
-}
-
-
-/* =========================
-   CONTENT
-   ========================= */
-
-.topic-content {
+  }
+  
+  /* =========================
+     CONTENT (THIS MOVES)
+     ========================= */
+  
+  .topic-content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     width: 100%;
-    transform: translateX(-36px); /* intentional offset */
+    transform: translateX(-36px);
     transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-/* =========================
-   TEXT
-   ========================= */
-
-.topic-text {
+    will-change: transform;
+  }
+  
+  /* =========================
+     TEXT
+     ========================= */
+  
+  .topic-text {
     font-size: clamp(2.2rem, 5vw, 3.8rem);
     font-weight: 300;
     line-height: 1.15;
     letter-spacing: -0.01em;
     opacity: 0.75;
     transition: opacity 0.3s ease;
-}
-
-
-/* =========================
-   HOVER
-   ========================= */
-
-.topic-item:hover .topic-eye {
+  }
+  
+  /* =========================
+     HOVER (SAFE)
+     ========================= */
+  
+  .topic-item:hover {
+    opacity: 0.85;
+  }
+  
+  .topic-item:hover .topic-eye {
     opacity: 1;
     transform: translateX(0);
-}
-
-.topic-item:hover .topic-content {
-    transform: translateX(0);
-}
-
-.topic-item:hover .topic-text {
+  }
+  
+  .topic-item:hover .topic-content {
+    transform: translateX(8px);
+  }
+  
+  .topic-item:hover .topic-text {
     opacity: 0.5;
-}
-
-.topic-item:hover {
-    opacity: 0.8;
-    transform: translateX(8px); /* calmer than 12px */
-}
-
-/* =========================
-   REDUCED MOTION
-   ========================= */
-
-@media (prefers-reduced-motion: reduce) {
+  }
+  
+  /* =========================
+     REDUCED MOTION
+     ========================= */
+  
+  @media (prefers-reduced-motion: reduce) {
     .topic-eye,
-    .topic-content
-     {
-        transition: none;
-        transform: none;
-    }
-}
-
-/* =========================
-   MOBILE
-   ========================= */
-
-@media (max-width: 768px) {
-    .topic-item {
-        padding: 2rem 0;
-    }
-
-    .topic-text {
-        font-size: clamp(1.8rem, 6vw, 2.8rem);
-    }
-
- 
-
-    /* Disable hover motion on touch */
     .topic-content {
-        transform: none;
+      transition: none;
+      transform: none;
     }
-
-    .topic-eye{
-        display: none;
+  }
+  
+  /* =========================
+     MOBILE
+     ========================= */
+  
+  @media (max-width: 768px) {
+    .topic-item {
+      padding: 2rem 0;
     }
-}
+  
+    .topic-text {
+      font-size: clamp(1.8rem, 6vw, 2.8rem);
+    }
+  
+    .topic-eye {
+      display: none;
+    }
+  
+    .topic-content {
+      transform: none;
+    }
+  
+    /* Optional: disable cursor images on touch */
+    .topic-image {
+      display: none;
+    }
+  }
+  

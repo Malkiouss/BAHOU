@@ -18,8 +18,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 85vh;
-            padding: 0 60px;
+            min-height: 100vh;
+            padding: 0 20px;
             position: relative;
             overflow: hidden;
         }
@@ -62,6 +62,8 @@
             letter-spacing: -0.01em;
             line-height: 1;
             margin: 0;    */
+            margin-top: 150px;
+            
             font-size: clamp(5.5rem, 15vw, 16rem);
             line-height: 0.95;
             letter-spacing: 0.05em; /* literary feel */
@@ -74,8 +76,7 @@
             font-family: 'Penna', serif;
            font-size: 50px;
            font-weight: 600;
-            margin-left: 50px;
-            letter-spacing: -5px;
+           margin-left: 40px;
             color: #2F201B;
         }
 
@@ -109,6 +110,10 @@
 
             .headline {
                 font-size: 48px;
+            }
+            .subtitle{
+                font-size: small;
+                margin-right:50px;
             }
 
             .illustration-container {
